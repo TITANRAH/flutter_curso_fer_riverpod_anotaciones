@@ -19,6 +19,8 @@ class TodoCurrentFilter extends _$TodoCurrentFilter {
   }
 
   void setCurrentFilter(FilterType newFilter) {
+    // al seleccionar un filtro en la vista cambiara el state por el filtro seleccionado
+    // por eso en la clase al final tenemos el filtro llamando a este provider 
     print(newFilter);
     state = newFilter;
   }
@@ -99,26 +101,22 @@ List<Todo> filteredTodos(FilteredTodosRef ref) {
   // traeme el estado de todas las tareas
   final todos = ref.watch(todosProvider);
 
-// si el estado es all traelas todas 
-// si el esstado es completed 
+// si el estado es all traelas todas
+// si el esstado es completed
 // si el estado pending traeme las pendientes
 
 // llamo al provider en donde tenia las las tareas
   switch (currentFiltered) {
     case FilterType.all:
       return todos;
-      break;
+
     case FilterType.completed:
       return todos.where((todo) => todo.done).toList();
-      break;
+
     case FilterType.pending:
       return todos.where((todo) => !todo.done).toList();
-      break;
   }
 }
 
 // cuando el provider es de solo lectura NO HAER CON CLASE
 // USAR PROVIDER SIMPLE
-
-
-

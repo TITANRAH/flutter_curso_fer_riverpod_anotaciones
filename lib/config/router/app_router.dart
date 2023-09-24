@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:riverpod_app/presentation/screens/10_movies_screen/movies_screen.dart';
 import 'package:riverpod_app/presentation/screens/screens.dart';
+
 part 'app_router.g.dart';
 
 @riverpod
@@ -46,6 +48,13 @@ GoRouter appRouter(AppRouterRef ref) {
       path: '/state-notifier-provider',
       builder: (context, state) => const StateNotifierScreen(),
     ),
+    GoRoute(
+      path: '/movies',
+      builder: (context, state) => const MoviesScreen(),
+    ),
+    // GoRoute(
+    //   path: '/stream-provider',
+    //   builder: (context, state) => const StreamProviderScreen(),
+    // ),
   ]);
 }
-
